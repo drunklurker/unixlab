@@ -3,7 +3,7 @@
 
 struct cat_params
 {
-    int r
+    int r;
 };
 
 int shcmd_cat(char* cmd, char* params[]);

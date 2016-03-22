@@ -57,7 +57,7 @@
 1458290331 source:/home/fwiffo/Documents/programming/progs/C/lab/src/tail.c
 	"tail.h"
 
-1458406915 /home/fwiffo/Documents/programming/progs/C/lab/include/cat.h
+1458606317 /home/fwiffo/Documents/programming/progs/C/lab/include/cat.h
 
 1458408533 source:/home/fwiffo/Documents/programming/progs/C/lab/src/cat.c
 	"cat.h"
@@ -69,8 +69,16 @@
 	<sys/stat.h>
 	<fcntl.h>
 
-1458408076 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
+1458606453 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
 	"ls.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<dirent.h>
 
-1458408076 /home/fwiffo/Documents/programming/progs/C/lab/include/ls.h
+1458605642 /home/fwiffo/Documents/programming/progs/C/lab/include/ls.h
 

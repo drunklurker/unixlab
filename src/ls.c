@@ -1,5 +1,14 @@
 #include "ls.h"
 
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <dirent.h>
+
 int shcmd_ls(char* cmd, char* params[])
 {
     int params_count = 0;
@@ -25,5 +34,11 @@ int shcmd_ls(char* cmd, char* params[])
             break;
         }
     }
-
+    char path[500];
+    if (params[optind] == NULL)
+        strcpy(path, getenv("PWD"));
+    else
+        strcpy(path, params[optind]);
+    //opendir()
+    return 0;
 }

@@ -70,6 +70,8 @@ void my_exec(char *cmd)
         SHCMD_EXEC(tail);
     else if ( IS_CMD(cat) )
         SHCMD_EXEC(cat);
+    else if ( IS_CMD(ls) )
+        SHCMD_EXEC(ls);
     else if( IS_CMD(exit) )
         SHCMD_EXEC(exit);
     else
