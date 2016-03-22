@@ -12,7 +12,7 @@ struct ls_struct
 
 int shcmd_ls(char* cmd, char* params[]);
 
-int print_ls_l(const struct dirent* d);
+int print_ls_l(const struct dirent* d, const char* path, int print_inode);
 
 int always_true(const struct dirent* d);
 

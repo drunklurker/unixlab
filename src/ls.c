@@ -56,20 +56,36 @@ int shcmd_ls(char* cmd, char* params[])
         printf("params[%d] = %s\n", i, params[i]);
     struct dirent ** entry_list;
     int entry_count = scandir(path, &entry_list, always_true, alphasort);
+    int current_length = 0;
+    int terminal_width = 80;
     for (i = 0; i < entry_count; i++)
     {
         if (flags.a == 0 && entry_list[i]->d_name[0] == '.')
             continue;
         if (flags.l)
-            print_ls_l(entry_list[i]);
+            print_ls_l(entry_list[i], path, flags.i);
         else
-            printf("%s  ", entry_list[i]->d_name);
-        printf("%s\n", entry_list[i]->d_name);
+        {
+            char filename[1024];
+            if (flags.i == 0)
+                strcpy(filename, "");
+            else
+                sprintf(filename, "%d ", entry_list[i]->d_ino);
+            strcat(filename, entry_list[i]->d_name);
+            if (current_length + strlen(filename) + 1 >= terminal_width)
+            {
+                printf("\n");
+                current_length = 0;
+            }
+            printf("%s  ", filename);
+            current_length += strlen(filename) + 2;
+        }
     }
 
+    printf("\n");
     return 0;
 }
-int print_ls_l(const struct dirent* d)
+int print_ls_l(const struct dirent* d, const char* path, int print_inode)
 {
     char time[256];
     struct stat st;
@@ -78,9 +94,17 @@ int print_ls_l(const struct dirent* d)
     int mode,right_ind;
     char* rights = "rwxrwxrwx";
     char *nuser,*ngroup;
-
-    lstat(d->d_name,&st);
+    char fullname[1024];
+    strcpy(fullname, path);
+    if (fullname[strlen(fullname)] != '/')
+        strcat(fullname, "/");
+    strcat(fullname, d->d_name);
+    lstat(fullname,&st);
 	mode = st.st_mode;
+	if (print_inode)
+    {
+        printf("%d ", d->d_ino);
+    }
 	S_ISDIR(mode)?printf("d"):printf("-"); // TODO: Fix me
 	mode &= 0777;
 	right_ind = 0;
@@ -102,7 +126,10 @@ int print_ls_l(const struct dirent* d)
 
 	strftime(time, sizeof(time), "%Y-%m-%d %H:%M", localtime(&st.st_mtime));
 
-	printf("%3d %s %s %8d %s %s\n",st.st_nlink,nuser,ngroup,st.st_size, time, d->d_name);
+    if (print_inode != 0)
+        printf("%3d %6s %6s %5d %s %s\n",st.st_nlink,nuser,ngroup,st.st_size, time, d->d_name);
+    else
+        printf("%3d %6s %6s %5d %s %s\n",st.st_nlink,nuser,ngroup,st.st_size, time, d->d_name);
 
     return 0;
 }
