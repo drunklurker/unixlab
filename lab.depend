@@ -69,7 +69,7 @@
 	<sys/stat.h>
 	<fcntl.h>
 
-1458608466 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
+1458610123 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
 	"ls.h"
 	<string.h>
 	<stdio.h>
@@ -79,6 +79,10 @@
 	<sys/stat.h>
 	<fcntl.h>
 	<dirent.h>
+	<pwd.h>
+	<grp.h>
+	<time.h>
 
-1458605642 /home/fwiffo/Documents/programming/progs/C/lab/include/ls.h
+1458610122 /home/fwiffo/Documents/programming/progs/C/lab/include/ls.h
+	<dirent.h>
 

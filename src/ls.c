@@ -8,8 +8,16 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <dirent.h>
+#include <pwd.h>
+#include <grp.h>
+#include <time.h>
 
 #define LIST_LENGTH 4096
+
+int always_true(const struct dirent *d)
+{
+    return 1;
+}
 
 int shcmd_ls(char* cmd, char* params[])
 {
@@ -46,25 +54,55 @@ int shcmd_ls(char* cmd, char* params[])
     int i;
     for (i = 0; i < params_count; i++)
         printf("params[%d] = %s\n", i, params[i]);
-    DIR* dir = opendir(path);
-    if (dir == NULL)
-        return -1;
-    struct dirent* dir_entry_list[LIST_LENGTH];
-    for (i = 0; i < LIST_LENGTH; i++)
-    {
-        dir_entry_list[i] = NULL;
-    }
-    int entry_count = 0;
-    while ((dir_entry_list[entry_count] = readdir(dir)) != NULL)
-    {
-        entry_count++;
-    }
+    struct dirent ** entry_list;
+    int entry_count = scandir(path, &entry_list, always_true, alphasort);
     for (i = 0; i < entry_count; i++)
     {
-        if (flags.a == 0 && dir_entry_list[i]->d_name[0] == '.')
+        if (flags.a == 0 && entry_list[i]->d_name[0] == '.')
             continue;
-        printf("%s\n", dir_entry_list[i]->d_name);
+        if (flags.l)
+            print_ls_l(entry_list[i]);
+        else
+            printf("%s  ", entry_list[i]->d_name);
+        printf("%s\n", entry_list[i]->d_name);
     }
 
-    return closedir(dir);
+    return 0;
+}
+int print_ls_l(const struct dirent* d)
+{
+    char time[256];
+    struct stat st;
+    struct passwd *pwd;
+    struct group *grp;
+    int mode,right_ind;
+    char* rights = "rwxrwxrwx";
+    char *nuser,*ngroup;
+
+    lstat(d->d_name,&st);
+	mode = st.st_mode;
+	S_ISDIR(mode)?printf("d"):printf("-"); // TODO: Fix me
+	mode &= 0777;
+	right_ind = 0;
+	while( right_ind < 9 )
+	{
+	    mode&256?printf("%c",rights[right_ind]):printf("-");
+	    mode <<= 1;
+	    right_ind++;
+	}
+	if (pwd=getpwuid(st.st_uid))
+        nuser=pwd->pw_name;
+    else
+        sprintf(nuser,"%d",st.st_uid);
+
+	if (grp=getgrgid(st.st_gid))
+        ngroup=grp->gr_name;
+    else
+        sprintf(ngroup,"%d",st.st_gid);
+
+	strftime(time, sizeof(time), "%Y-%m-%d %H:%M", localtime(&st.st_mtime));
+
+	printf("%3d %s %s %8d %s %s\n",st.st_nlink,nuser,ngroup,st.st_size, time, d->d_name);
+
+    return 0;
 }
