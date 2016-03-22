@@ -44,7 +44,7 @@ int shcmd_nl(char* cmd, char* params[])
         while (line != NULL)
         {
             line_number++;
-            printf("%6d  %s", line_number, line);
+            printf("%6d  %s\n", line_number, line);
             line = strtok(0, "\n");
         }
 

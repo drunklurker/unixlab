@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1458665594 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
+1458667874 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -14,6 +14,7 @@
 	"tail.h"
 	"cat.h"
 	"nl.h"
+	"link.h"
 
 1458259927 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rm.c
 	"rm.h"
@@ -89,7 +90,7 @@
 
 1458665594 /home/fwiffo/Documents/programming/progs/C/lab/include/nl.h
 
-1458665983 source:/home/fwiffo/Documents/programming/progs/C/lab/src/nl.c
+1458667977 source:/home/fwiffo/Documents/programming/progs/C/lab/src/nl.c
 	"nl.h"
 	<sys/types.h>
 	<sys/stat.h>
@@ -97,4 +98,10 @@
 	<unistd.h>
 	<string.h>
 	<stdio.h>
+
+1458667874 /home/fwiffo/Documents/programming/progs/C/lab/include/link.h
+
+1458667928 source:/home/fwiffo/Documents/programming/progs/C/lab/src/link.c
+	"link.h"
+	<unistd.h>
 
