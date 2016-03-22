@@ -60,7 +60,11 @@ int shcmd_ls(char* cmd, char* params[])
         entry_count++;
     }
     for (i = 0; i < entry_count; i++)
+    {
+        if (flags.a == 0 && dir_entry_list[i]->d_name[0] == '.')
+            continue;
         printf("%s\n", dir_entry_list[i]->d_name);
+    }
 
     return closedir(dir);
 }
