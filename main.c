@@ -12,6 +12,7 @@
 #include "rmdir.h"
 #include "tail.h"
 #include "cat.h"
+#include "nl.h"
 
 //cat wc nl link grep
 int shell_active = 1; // требуется для команды exit
