@@ -9,6 +9,8 @@
 #include <fcntl.h>
 #include <dirent.h>
 
+#define LIST_LENGTH 4096
+
 int shcmd_ls(char* cmd, char* params[])
 {
     int params_count = 0;
@@ -47,11 +49,18 @@ int shcmd_ls(char* cmd, char* params[])
     DIR* dir = opendir(path);
     if (dir == NULL)
         return -1;
-    struct dirent* dir_entry;
-    while ((dir_entry = readdir(dir)) != NULL)
+    struct dirent* dir_entry_list[LIST_LENGTH];
+    for (i = 0; i < LIST_LENGTH; i++)
     {
-        printf("%s\n", dir_entry->d_name);
+        dir_entry_list[i] = NULL;
     }
+    int entry_count = 0;
+    while ((dir_entry_list[entry_count] = readdir(dir)) != NULL)
+    {
+        entry_count++;
+    }
+    for (i = 0; i < entry_count; i++)
+        printf("%s\n", dir_entry_list[i]->d_name);
 
     return closedir(dir);
 }
