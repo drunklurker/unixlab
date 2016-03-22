@@ -1,0 +1,76 @@
+# depslib dependency file v1.0
+1458406916 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/wait.h>
+	<sys/types.h>
+	<sys/stat.h>
+	"rm.h"
+	"mkdir.h"
+	"free.h"
+	"rmdir.h"
+	"tail.h"
+	"cat.h"
+
+1458259927 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rm.c
+	"rm.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/wait.h>
+	<sys/types.h>
+	<sys/stat.h>
+
+1458259927 /home/fwiffo/Documents/programming/progs/C/lab/include/rm.h
+
+1458259902 /home/fwiffo/Documents/programming/progs/C/lab/include/mkdir.h
+
+1458259902 source:/home/fwiffo/Documents/programming/progs/C/lab/src/mkdir.c
+	"mkdir.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/wait.h>
+	<sys/types.h>
+	<sys/stat.h>
+
+1458288363 /home/fwiffo/Documents/programming/progs/C/lab/include/free.h
+
+1458289070 source:/home/fwiffo/Documents/programming/progs/C/lab/src/free.c
+	"free.h"
+	<stdio.h>
+	<stdlib.h>
+	<sys/sysinfo.h>
+
+1458289600 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rmdir.c
+	"rmdir.h"
+	<unistd.h>
+
+1458289600 /home/fwiffo/Documents/programming/progs/C/lab/include/rmdir.h
+
+1458290330 /home/fwiffo/Documents/programming/progs/C/lab/include/tail.h
+
+1458290331 source:/home/fwiffo/Documents/programming/progs/C/lab/src/tail.c
+	"tail.h"
+
+1458406915 /home/fwiffo/Documents/programming/progs/C/lab/include/cat.h
+
+1458408533 source:/home/fwiffo/Documents/programming/progs/C/lab/src/cat.c
+	"cat.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+
+1458408076 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
+	"ls.h"
+
+1458408076 /home/fwiffo/Documents/programming/progs/C/lab/include/ls.h
+
