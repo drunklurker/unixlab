@@ -39,6 +39,19 @@ int shcmd_ls(char* cmd, char* params[])
         strcpy(path, getenv("PWD"));
     else
         strcpy(path, params[optind]);
-    //opendir()
-    return 0;
+    printf("optind = %d\n", optind);
+    printf("path = %s\n", path);
+    int i;
+    for (i = 0; i < params_count; i++)
+        printf("params[%d] = %s\n", i, params[i]);
+    DIR* dir = opendir(path);
+    if (dir == NULL)
+        return -1;
+    struct dirent* dir_entry;
+    while ((dir_entry = readdir(dir)) != NULL)
+    {
+        printf("%s\n", dir_entry->d_name);
+    }
+
+    return closedir(dir);
 }

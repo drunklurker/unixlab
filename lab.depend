@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1458406916 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
+1458606592 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -69,7 +69,7 @@
 	<sys/stat.h>
 	<fcntl.h>
 
-1458606453 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
+1458607194 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
 	"ls.h"
 	<string.h>
 	<stdio.h>
