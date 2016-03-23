@@ -35,8 +35,10 @@
 		</Compiler>
 		<Unit filename="include/cat.h" />
 		<Unit filename="include/free.h" />
+		<Unit filename="include/link.h" />
 		<Unit filename="include/ls.h" />
 		<Unit filename="include/mkdir.h" />
+		<Unit filename="include/nl.h" />
 		<Unit filename="include/rm.h" />
 		<Unit filename="include/rmdir.h" />
 		<Unit filename="include/tail.h" />
@@ -49,10 +51,16 @@
 		<Unit filename="src/free.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/link.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/ls.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/mkdir.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/nl.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/rm.c">

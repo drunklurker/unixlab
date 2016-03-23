@@ -72,7 +72,7 @@ int shcmd_ls(char* cmd, char* params[])
             else
                 sprintf(filename, "%d ", entry_list[i]->d_ino);
             strcat(filename, entry_list[i]->d_name);
-            if (current_length + strlen(filename) + 1 >= terminal_width)
+            if (current_length + strlen(filename) + 1 >= terminal_width && current_length > 0)
             {
                 printf("\n");
                 current_length = 0;

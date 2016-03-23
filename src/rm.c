@@ -53,7 +53,7 @@ int shcmd_rm(char* cmd, char* params[])
             perror(errorString);
             return -1;
         }
-        else
+        else //
         {
             remove(params[optind]);
         }
