@@ -36,6 +36,7 @@ int shcmd_nl(char* cmd, char* params[])
     int fd = open(params[optind], O_RDONLY);
     if (fd == -1)
     {
+        perror("open");
         return -1;
     }
     char buffer[NL_BUFFER_SIZE];

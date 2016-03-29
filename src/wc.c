@@ -41,10 +41,16 @@ int shcmd_wc(char* cmd, char* params[])
         flags.c = flags.w = flags.l = 1;
     }
     char* line = NULL;
+    size_t total_longest_line = 0;
+    size_t total_byte_count = 0;
+    size_t total_line_count = 0;
+    size_t total_word_count = 0;
+
+    size_t file_byte_count = 0;
     for (i = optind; i < params_count; i++)
     {
-        size_t longest_line = 0;
-        size_t file_byte_count = 0;
+        size_t file_longest_line = 0;
+        file_byte_count = 0;
         size_t file_line_count = 0;
         size_t file_word_count = 0;
         size_t n;
@@ -57,24 +63,48 @@ int shcmd_wc(char* cmd, char* params[])
         ssize_t read_bytes;
         while ((read_bytes  = getline(&line, &n, file)) != -1)
         {
-            file_byte_count += n;
+            file_byte_count += read_bytes;
             file_line_count++;
-            if (n > longest_line)
-                longest_line = n;
+            if (read_bytes > file_longest_line)
+            {
+                file_longest_line = read_bytes;
+                if (line[read_bytes-1] == '\n')
+                    file_longest_line--;
+            }
             if (n <= 1)
                 continue;
             file_word_count += count_line_words(line, n, &flags);
         }
+        total_byte_count += file_byte_count;
+        total_line_count += file_line_count;
+        total_word_count += file_word_count;
+        if (total_longest_line < file_longest_line)
+        {
+            total_longest_line = file_longest_line;
+        }
         if (flags.l)
-            printf("  %d", file_line_count);
+            printf("%6d", file_line_count);
         if (flags.w)
-            printf("  %d", file_word_count);
+            printf("%6d", file_word_count);
         if (flags.c)
-            printf("  %d", file_byte_count);
+            printf("%6d", file_byte_count);
         if (flags.L)
-            printf("  %d", longest_line);
+            printf("%6d", file_longest_line);
         printf("  %s\n", params[i]);
     }
+    if (total_byte_count != file_byte_count)
+    {
+        if (flags.l)
+            printf("%6d", total_line_count);
+        if (flags.w)
+            printf("%6d", total_word_count);
+        if (flags.c)
+            printf("%6d", total_byte_count);
+        if (flags.L)
+            printf("%6d", total_longest_line);
+        printf("  total\n");
+    }
+
     if (line != NULL)
         free(line);
     return 0;
@@ -87,6 +117,7 @@ int count_line_words(char* line, size_t length, struct wc_struct* flags)
     int word_count = 0;
     if (word == NULL)
         return word_count;
+
     word_count++;
     while ((word = strtok(NULL, delim)) != NULL)
         word_count++;

@@ -101,7 +101,7 @@
 	<string.h>
 	<stdio.h>
 
-1458667874 /home/fwiffo/Documents/programming/progs/C/lab/include/link.h
+1459253580 /home/fwiffo/Documents/programming/progs/C/lab/include/link.h
 
 1458667928 source:/home/fwiffo/Documents/programming/progs/C/lab/src/link.c
 	"link.h"
@@ -110,7 +110,7 @@
 1459237952 /home/fwiffo/Documents/programming/progs/C/lab/include/wc.h
 	<stdlib.h>
 
-1459238940 source:/home/fwiffo/Documents/programming/progs/C/lab/src/wc.c
+1459251763 source:/home/fwiffo/Documents/programming/progs/C/lab/src/wc.c
 	"wc.h"
 	<stdio.h>
 	<stdlib.h>
