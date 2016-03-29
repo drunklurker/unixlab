@@ -105,7 +105,7 @@ int print_ls_l(const struct dirent* d, const char* path, int print_inode)
     {
         printf("%d ", d->d_ino);
     }
-	S_ISDIR(mode)?printf("d"):printf("-"); // TODO: Fix me
+	S_ISDIR(mode)?printf("d"):printf("-");
 	mode &= 0777;
 	right_ind = 0;
 	while( right_ind < 9 )

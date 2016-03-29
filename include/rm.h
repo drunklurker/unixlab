@@ -5,7 +5,6 @@
 struct rm_struct
 {
     int r;
-    int f;
 };
 int shcmd_rm(char* cmd, char* params[]);
 

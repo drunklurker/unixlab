@@ -42,6 +42,7 @@
 		<Unit filename="include/rm.h" />
 		<Unit filename="include/rmdir.h" />
 		<Unit filename="include/tail.h" />
+		<Unit filename="include/wc.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -70,6 +71,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/tail.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/wc.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

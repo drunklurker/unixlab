@@ -17,12 +17,17 @@ int shcmd_nl(char* cmd, char* params[])
         params_count++;
     }
 
-    char opts[] = "";
+    char opts[] = "i:";
     int opt;
+    struct nl_struct flags;
+    flags.i = 1;
     while ((opt = getopt(params_count, params, opts)) != -1)
     {
         switch(opt)
         {
+        case 'i':
+            flags.i = atoi(optarg);
+            break;
         default:
             break;
         }
@@ -36,15 +41,15 @@ int shcmd_nl(char* cmd, char* params[])
     char buffer[NL_BUFFER_SIZE];
 
     ssize_t read_bytes;
-    int line_number = 0;
+    int line_number = 1;
     while ((read_bytes = read(fd, buffer, NL_BUFFER_SIZE-1)) > 0)
     {
         buffer[read_bytes] = 0;
         char* line = strtok(buffer, "\n");
         while (line != NULL)
         {
-            line_number++;
             printf("%6d  %s\n", line_number, line);
+            line_number += flags.i;
             line = strtok(0, "\n");
         }
 

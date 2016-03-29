@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1458667874 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
+1459122211 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -15,8 +15,10 @@
 	"cat.h"
 	"nl.h"
 	"link.h"
+	"wc.h"
+	"ls.h"
 
-1458738820 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rm.c
+1459006802 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rm.c
 	"rm.h"
 	<string.h>
 	<stdio.h>
@@ -26,7 +28,7 @@
 	<sys/types.h>
 	<sys/stat.h>
 
-1458259927 /home/fwiffo/Documents/programming/progs/C/lab/include/rm.h
+1459006804 /home/fwiffo/Documents/programming/progs/C/lab/include/rm.h
 
 1458259902 /home/fwiffo/Documents/programming/progs/C/lab/include/mkdir.h
 
@@ -59,9 +61,9 @@
 1458290331 source:/home/fwiffo/Documents/programming/progs/C/lab/src/tail.c
 	"tail.h"
 
-1458606317 /home/fwiffo/Documents/programming/progs/C/lab/include/cat.h
+1459118992 /home/fwiffo/Documents/programming/progs/C/lab/include/cat.h
 
-1458408533 source:/home/fwiffo/Documents/programming/progs/C/lab/src/cat.c
+1459120650 source:/home/fwiffo/Documents/programming/progs/C/lab/src/cat.c
 	"cat.h"
 	<string.h>
 	<stdio.h>
@@ -71,7 +73,7 @@
 	<sys/stat.h>
 	<fcntl.h>
 
-1458658085 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
+1459102110 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ls.c
 	"ls.h"
 	<string.h>
 	<stdio.h>
@@ -88,9 +90,9 @@
 1458657357 /home/fwiffo/Documents/programming/progs/C/lab/include/ls.h
 	<dirent.h>
 
-1458665594 /home/fwiffo/Documents/programming/progs/C/lab/include/nl.h
+1459120882 /home/fwiffo/Documents/programming/progs/C/lab/include/nl.h
 
-1458667977 source:/home/fwiffo/Documents/programming/progs/C/lab/src/nl.c
+1459121010 source:/home/fwiffo/Documents/programming/progs/C/lab/src/nl.c
 	"nl.h"
 	<sys/types.h>
 	<sys/stat.h>
@@ -104,4 +106,14 @@
 1458667928 source:/home/fwiffo/Documents/programming/progs/C/lab/src/link.c
 	"link.h"
 	<unistd.h>
+
+1459237952 /home/fwiffo/Documents/programming/progs/C/lab/include/wc.h
+	<stdlib.h>
+
+1459238940 source:/home/fwiffo/Documents/programming/progs/C/lab/src/wc.c
+	"wc.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<string.h>
 

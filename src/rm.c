@@ -16,8 +16,8 @@ int shcmd_rm(char* cmd, char* params[])
     printf("rm started\n");
     struct stat info;
     struct rm_struct flags;
-    flags.r = flags.f = 0;
-    char opts[] = "rf";
+    flags.r = 0;
+    char opts[] = "r";
     int opt;
     while ((opt = getopt(params_count, params, opts)) != -1)
     {
@@ -25,9 +25,6 @@ int shcmd_rm(char* cmd, char* params[])
         {
         case 'r':
             flags.r = 1;
-            break;
-        case 'f':
-            flags.f = 1;
             break;
         }
     }

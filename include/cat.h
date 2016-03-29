@@ -1,9 +1,10 @@
 #ifndef CAT_H
 #define CAT_H
 
-struct cat_params
+struct cat_struct
 {
-    int r;
+    int E;
+    int n;
 };
 
 int shcmd_cat(char* cmd, char* params[]);
