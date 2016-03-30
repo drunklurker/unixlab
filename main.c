@@ -5,6 +5,9 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <regex.h>
+#include <string.h>
+#include <malloc.h>
 
 #include "rm.h"
 #include "mkdir.h"
@@ -29,6 +32,35 @@ int shell_active = 1; // требуется для команды exit
 #define SHCMD_EXEC(x) shcmd_##x (params[0], params)
 #define IS_CMD(x) strncmp(#x,cmd,strlen(cmd)) == 0
 
+
+char* paste_env(char *str)
+{
+    char *env;
+    char buf[256];
+    regex_t preg;
+    regmatch_t pm;
+    char *newstr;
+    int len;
+
+    regcomp( &preg, "\\$\\w\\+\\b", REG_ICASE );
+    while ( regexec(&preg, str, 1, &pm, REG_NOTBOL) == 0 )
+    {
+	memset(buf, '\0', 256);
+	strncpy(buf,&str[pm.rm_so]+1,(pm.rm_eo-pm.rm_so-1 < 256)?pm.rm_eo-pm.rm_so-1:254);
+	env = getenv(buf);
+	if(!env) env = "";
+	len = strlen(str)-strlen(buf)+strlen(env);
+	newstr=malloc(len);
+	memset(newstr, '\0', len);
+	strncpy(newstr,str,pm.rm_so);
+	strncat(newstr,env,strlen(env));
+	strncat(newstr,&str[pm.rm_eo],strlen(str)-pm.rm_eo);
+	str = newstr;
+    }
+    regfree(&preg);
+
+    return newstr;
+}
 // Встроенные команды
 // - pwd, exit
 
@@ -168,7 +200,7 @@ int exec_conv(char *cmds[], int n, int curr)
 // главная функция, цикл ввода строк (разбивка конвейера, запуск команды)
 int main()
 {
-    char cmdline[1024];
+    char *cmdline = malloc(1024*sizeof(cmdline[0]));
     char *p, *cmds[256], *token;
     int cmd_cnt;
 
@@ -178,6 +210,7 @@ int main()
         fflush(stdout);
 
         fgets(cmdline,1024,stdin);
+        cmdline = paste_env(cmdline);
         if( (p = strstr(cmdline,"\n")) != NULL )
             p[0] = 0;
 
@@ -194,5 +227,6 @@ int main()
             exec_conv(cmds,cmd_cnt,0);
         }
     }
+    free(cmdline);
     return 0;
 }

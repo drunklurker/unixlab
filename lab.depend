@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1459325329 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
+1459325943 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -7,6 +7,9 @@
 	<sys/wait.h>
 	<sys/types.h>
 	<sys/stat.h>
+	<regex.h>
+	<string.h>
+	<malloc.h>
 	"rm.h"
 	"mkdir.h"
 	"free.h"
@@ -124,7 +127,7 @@
 	<unistd.h>
 	<string.h>
 
-1459324455 source:/home/fwiffo/Documents/programming/progs/C/lab/src/grep.c
+1459325569 source:/home/fwiffo/Documents/programming/progs/C/lab/src/grep.c
 	"grep.h"
 	<unistd.h>
 	<regex.h>
