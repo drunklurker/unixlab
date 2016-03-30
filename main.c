@@ -17,6 +17,7 @@
 #include "wc.h"
 #include "ls.h"
 #include "grep.h"
+#include "ps.h"
 
 //cat wc nl link grep
 int shell_active = 1; // требуется для команды exit
@@ -85,6 +86,8 @@ void my_exec(char *cmd)
         SHCMD_EXEC(wc);
     else if ( IS_CMD(grep) )
         SHCMD_EXEC(grep);
+    else if ( IS_CMD(ps) )
+        SHCMD_EXEC(ps);
     else if( IS_CMD(exit) )
         SHCMD_EXEC(exit);
     else

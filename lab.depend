@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1459323375 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
+1459325329 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -18,6 +18,7 @@
 	"wc.h"
 	"ls.h"
 	"grep.h"
+	"ps.h"
 
 1459323180 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rm.c
 	"rm.h"
@@ -123,7 +124,7 @@
 	<unistd.h>
 	<string.h>
 
-1459324095 source:/home/fwiffo/Documents/programming/progs/C/lab/src/grep.c
+1459324455 source:/home/fwiffo/Documents/programming/progs/C/lab/src/grep.c
 	"grep.h"
 	<unistd.h>
 	<regex.h>
@@ -133,4 +134,18 @@
 
 1459257636 /home/fwiffo/Documents/programming/progs/C/lab/include/grep.h
 	<stdlib.h>
+
+1459325386 /home/fwiffo/Documents/programming/progs/C/lab/include/ps.h
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<ctype.h>
+	<dirent.h>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<pwd.h>
+
+1459325397 source:/home/fwiffo/Documents/programming/progs/C/lab/src/ps.c
+	"ps.h"
 

@@ -74,13 +74,13 @@ int params_count = 0;
                     printf("%s", line);
                 }
             }
+        }
             if (flags.c)
             {
                 if (file_count > 1)
                     printf("%s: ", params[i]);
                 printf("%d", match_count);
             }
-        }
         fclose(file);
         printf("\n");
     }
