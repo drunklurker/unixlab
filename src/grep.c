@@ -31,9 +31,9 @@ int params_count = 0;
         printf("%d: %s\n", i, params[i]);
     char* pattern_string = params[optind];
     regex_t pattern_regex;
-    if (regcomp(&pattern_regex, pattern_string, REG_NOSUB) != 0)
+    if (regcomp(&pattern_regex, pattern_string, REG_NOSUB | REG_EXTENDED) != 0)
     {
-        perror("regcomp\n");
+        perror("regcomp error\n");
         return -1;
     }
 
@@ -49,6 +49,7 @@ int params_count = 0;
     size_t n = 0;
     for (i = optind+1; i < params_count; i++)
     {
+        printf("reading %s\n", params[i]);
         //open file as stream to use getline function
         int match_count = 0;
         FILE* file = fopen(params[i], "r");
@@ -62,10 +63,8 @@ int params_count = 0;
         {
             regmatch_t pmatch[10];
             size_t nmatch = 5;
-            printf("reading line\n");
             if (regexec(&pattern_regex, line, nmatch, pmatch, 0) == 0)
             {
-                printf("regexec found match\n");
                 if (flags.c)
                     match_count++;
                 else
