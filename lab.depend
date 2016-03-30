@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1459122211 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
+1459323375 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -17,8 +17,9 @@
 	"link.h"
 	"wc.h"
 	"ls.h"
+	"grep.h"
 
-1459006802 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rm.c
+1459323180 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rm.c
 	"rm.h"
 	<string.h>
 	<stdio.h>
@@ -56,10 +57,15 @@
 
 1458289600 /home/fwiffo/Documents/programming/progs/C/lab/include/rmdir.h
 
-1458290330 /home/fwiffo/Documents/programming/progs/C/lab/include/tail.h
+1459321052 /home/fwiffo/Documents/programming/progs/C/lab/include/tail.h
+	<stdio.h>
 
-1458290331 source:/home/fwiffo/Documents/programming/progs/C/lab/src/tail.c
+1459323180 source:/home/fwiffo/Documents/programming/progs/C/lab/src/tail.c
 	"tail.h"
+	<stdio.h>
+	<unistd.h>
+	<stdlib.h>
+	<string.h>
 
 1459118992 /home/fwiffo/Documents/programming/progs/C/lab/include/cat.h
 
@@ -92,7 +98,7 @@
 
 1459120882 /home/fwiffo/Documents/programming/progs/C/lab/include/nl.h
 
-1459121010 source:/home/fwiffo/Documents/programming/progs/C/lab/src/nl.c
+1459252286 source:/home/fwiffo/Documents/programming/progs/C/lab/src/nl.c
 	"nl.h"
 	<sys/types.h>
 	<sys/stat.h>
@@ -103,17 +109,28 @@
 
 1459253580 /home/fwiffo/Documents/programming/progs/C/lab/include/link.h
 
-1458667928 source:/home/fwiffo/Documents/programming/progs/C/lab/src/link.c
+1459253580 source:/home/fwiffo/Documents/programming/progs/C/lab/src/link.c
 	"link.h"
 	<unistd.h>
 
 1459237952 /home/fwiffo/Documents/programming/progs/C/lab/include/wc.h
 	<stdlib.h>
 
-1459251763 source:/home/fwiffo/Documents/programming/progs/C/lab/src/wc.c
+1459321073 source:/home/fwiffo/Documents/programming/progs/C/lab/src/wc.c
 	"wc.h"
 	<stdio.h>
 	<stdlib.h>
 	<unistd.h>
 	<string.h>
+
+1459323338 source:/home/fwiffo/Documents/programming/progs/C/lab/src/grep.c
+	"grep.h"
+	<unistd.h>
+	<regex.h>
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+
+1459257636 /home/fwiffo/Documents/programming/progs/C/lab/include/grep.h
+	<stdlib.h>
 

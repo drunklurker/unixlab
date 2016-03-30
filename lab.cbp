@@ -35,6 +35,7 @@
 		</Compiler>
 		<Unit filename="include/cat.h" />
 		<Unit filename="include/free.h" />
+		<Unit filename="include/grep.h" />
 		<Unit filename="include/link.h" />
 		<Unit filename="include/ls.h" />
 		<Unit filename="include/mkdir.h" />
@@ -50,6 +51,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/free.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/grep.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/link.c">

@@ -5,9 +5,9 @@
 
 struct grep_struct
 {
-
+    int c;
 };
 
 int shcmd_grep(char *cmd, char* params[]);
 
-
+#endif

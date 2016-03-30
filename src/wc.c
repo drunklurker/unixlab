@@ -41,6 +41,7 @@ int shcmd_wc(char* cmd, char* params[])
         flags.c = flags.w = flags.l = 1;
     }
     char* line = NULL;
+    size_t n;
     size_t total_longest_line = 0;
     size_t total_byte_count = 0;
     size_t total_line_count = 0;
@@ -53,7 +54,6 @@ int shcmd_wc(char* cmd, char* params[])
         file_byte_count = 0;
         size_t file_line_count = 0;
         size_t file_word_count = 0;
-        size_t n;
         FILE* file = fopen(params[i], "r");
         if (file == NULL)
         {
