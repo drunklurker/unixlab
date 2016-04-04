@@ -1,6 +1,7 @@
 #include "rmdir.h"
 
 #include <unistd.h>
+#include <stdio.h>
 
 int shcmd_rmdir(char* cmd, char* params[])
 {
@@ -18,5 +19,11 @@ int shcmd_rmdir(char* cmd, char* params[])
         }
     }
 
-    return rmdir(params[optind]);
+    if (rmdir(params[optind])!= 0)
+    {
+        perror("rmdir error\n");
+        return -1;
+    }
+
+    return 0;
 }

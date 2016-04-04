@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1459325943 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
+1459329505 source:/home/fwiffo/Documents/programming/progs/C/lab/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -37,7 +37,7 @@
 
 1458259902 /home/fwiffo/Documents/programming/progs/C/lab/include/mkdir.h
 
-1458259902 source:/home/fwiffo/Documents/programming/progs/C/lab/src/mkdir.c
+1459327629 source:/home/fwiffo/Documents/programming/progs/C/lab/src/mkdir.c
 	"mkdir.h"
 	<string.h>
 	<stdio.h>
@@ -49,15 +49,17 @@
 
 1458288363 /home/fwiffo/Documents/programming/progs/C/lab/include/free.h
 
-1458289070 source:/home/fwiffo/Documents/programming/progs/C/lab/src/free.c
+1459329247 source:/home/fwiffo/Documents/programming/progs/C/lab/src/free.c
 	"free.h"
 	<stdio.h>
 	<stdlib.h>
+	<unistd.h>
 	<sys/sysinfo.h>
 
-1458289600 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rmdir.c
+1459328623 source:/home/fwiffo/Documents/programming/progs/C/lab/src/rmdir.c
 	"rmdir.h"
 	<unistd.h>
+	<stdio.h>
 
 1458289600 /home/fwiffo/Documents/programming/progs/C/lab/include/rmdir.h
 
@@ -127,7 +129,7 @@
 	<unistd.h>
 	<string.h>
 
-1459325569 source:/home/fwiffo/Documents/programming/progs/C/lab/src/grep.c
+1459328623 source:/home/fwiffo/Documents/programming/progs/C/lab/src/grep.c
 	"grep.h"
 	<unistd.h>
 	<regex.h>

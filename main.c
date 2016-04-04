@@ -200,7 +200,7 @@ int exec_conv(char *cmds[], int n, int curr)
 // главная функция, цикл ввода строк (разбивка конвейера, запуск команды)
 int main()
 {
-    char *cmdline = malloc(1024*sizeof(cmdline[0]));
+    char cmdline[1024];// = malloc(1024*sizeof(cmdline[0]));
     char *p, *cmds[256], *token;
     int cmd_cnt;
 
@@ -210,7 +210,7 @@ int main()
         fflush(stdout);
 
         fgets(cmdline,1024,stdin);
-        cmdline = paste_env(cmdline);
+        paste_env(cmdline);
         if( (p = strstr(cmdline,"\n")) != NULL )
             p[0] = 0;
 
@@ -227,6 +227,5 @@ int main()
             exec_conv(cmds,cmd_cnt,0);
         }
     }
-    free(cmdline);
     return 0;
 }

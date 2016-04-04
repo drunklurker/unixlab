@@ -11,26 +11,24 @@
 int shcmd_mkdir(char* cmd, char* params[])
 {
     printf("mkdir started\n");
-    char opts[] = "p";
+    char opts[] = "";
     struct mkdir_struct flags;
-    flags.p = 0;
     int params_count = 0;
     while (params[params_count] != NULL)
         params_count++;
-    flags.p = 0;
     int opt;
     while ((opt = getopt(params_count, params, opts)) != -1)
     {
         switch(opt)
         {
-        case 'p':
-            flags.p = 1;
+        default:
             break;
         }
     }
     if (mkdir(params[optind], 0777) == -1)
     {
         perror("Could not create directory");
+        return -1;
     }
     return 0;
 }

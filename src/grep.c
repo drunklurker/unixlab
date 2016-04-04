@@ -49,7 +49,6 @@ int params_count = 0;
     size_t n = 0;
     for (i = optind+1; i < params_count; i++)
     {
-        printf("reading %s\n", params[i]);
         //open file as stream to use getline function
         int match_count = 0;
         FILE* file = fopen(params[i], "r");

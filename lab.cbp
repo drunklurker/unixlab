@@ -40,6 +40,7 @@
 		<Unit filename="include/ls.h" />
 		<Unit filename="include/mkdir.h" />
 		<Unit filename="include/nl.h" />
+		<Unit filename="include/ps.h" />
 		<Unit filename="include/rm.h" />
 		<Unit filename="include/rmdir.h" />
 		<Unit filename="include/tail.h" />
@@ -66,6 +67,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/nl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/ps.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/rm.c">
